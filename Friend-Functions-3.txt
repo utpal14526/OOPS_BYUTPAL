@@ -1,0 +1,28 @@
+class B;
+
+class C{
+    public:
+     void f(B &t);
+};
+
+class B{
+    private:
+      int a=10;
+      void display(){
+          cout<<a<<endl;
+      }
+      
+      friend void C::f(B &);
+};
+
+
+void C::f(B &t){
+    t.display();//now  C can access the private member of the function of class B.
+}
+
+int main(){
+    B b;
+    C c;
+    c.f(b);
+}
+
