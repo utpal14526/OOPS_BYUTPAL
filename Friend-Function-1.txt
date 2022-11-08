@@ -1,0 +1,23 @@
+//making a external function friend friend can be declared anywhere public,protected,private
+
+class A{
+    private:
+      int a=10;
+      friend void display(A &);
+      public:
+      void display2(){
+          cout<<a<<endl;
+      }
+};
+
+void display(A &t){
+    cout<<t.a<<endl;   //->This function can also change the private member of class A;
+    t.a=20;
+}
+
+int main(){
+   A a;
+   display(a);
+   a.display2();
+   
+}
